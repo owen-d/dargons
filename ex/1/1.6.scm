@@ -22,4 +22,8 @@
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-(square (sqrt 1000))
+(define (percentage-diff-sqrt x)
+  ; compares computed x to x.
+  (/ (square (sqrt x)) x))
+
+(percentage-diff-sqrt 0.00001)
