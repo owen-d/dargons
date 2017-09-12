@@ -27,4 +27,4 @@ Normal Order:
 45
 ```
 
-Lisp uses applicative order.
+MIT Scheme uses applicative order.
