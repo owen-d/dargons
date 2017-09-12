@@ -41,3 +41,32 @@ Below, `+` is free, but `x` is bound.
 #### Free
 Free variables have dangling references to names
 > If a variable is not bound, we say that it is free.
+
+### Processes, Recursive & Iterative (& their distinction from procedures)
+Processes describe the evolution of an procedure or set of procedures, and the shapes they form with respect to space and time. big O
+#### Recursive
+Consider the following, & the shape of its evaluation:
+```lisp
+(define (factorial n)
+  (if (= n 1)
+      1
+      (* n (factorial (- n 1)))))
+```
+![linear iterative process](1/static/linear_iterative_process.gif)
+> The expansion occurs as the process builds up a chain of deferred operations (in this case, a chain of multiplications). The contraction occurs as the operations are actually performed. This type of process, characterized by a chain of deferred operations, is called a recursive process. 
+#### Iterative
+Now, consider this definition:
+```lisp
+(define (factorial n)
+  (fact-iter 1 1 n))
+
+(define (fact-iter product counter max-count)
+  (if (> counter max-count)
+      product
+      (fact-iter (* counter product)
+                 (+ counter 1)
+                 max-count)))
+```
+![linear recursive process](1/static/linear_recursive_process.gif)
+> In general, an iterative process is one whose state can be summarized by a fixed number of state variables, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test
+
