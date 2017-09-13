@@ -52,7 +52,7 @@ Consider the following, & the shape of its evaluation:
       1
       (* n (factorial (- n 1)))))
 ```
-![linear iterative process](1/static/linear_iterative_process.gif)
+![linear recursive process](1/static/linear_recursive_process.gif)
 > The expansion occurs as the process builds up a chain of deferred operations (in this case, a chain of multiplications). The contraction occurs as the operations are actually performed. This type of process, characterized by a chain of deferred operations, is called a recursive process. 
 #### Iterative
 Now, consider this definition:
@@ -67,6 +67,6 @@ Now, consider this definition:
                  (+ counter 1)
                  max-count)))
 ```
-![linear recursive process](1/static/linear_recursive_process.gif)
+![linear iterative process](1/static/linear_iterative_process.gif)
 > In general, an iterative process is one whose state can be summarized by a fixed number of state variables, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test
 
