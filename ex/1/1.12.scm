@@ -19,3 +19,10 @@
 ;; => 3
 (pascal 5 3)
 ;; => 6
+
+
+;; really clever way to do it (& efficient!); never have to calculate or check out of bounds:
+(define (pascal r c)
+  (if (or (= c 1) (= c r))
+      1
+      (+ (pascal (- r 1) (- c 1)) (pascal (- r 1) c))))
