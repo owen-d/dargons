@@ -1,4 +1,11 @@
 ;; utils
+;; fun recursive process implementation of map
+(define (map fn col)
+  (if (null? col)
+      '()
+      (cons (fn (car col))
+            (map fn (cdr col)))))
+
 (define (fold fn init col)
   (if (null? col)
       init
