@@ -42,6 +42,17 @@
                                                (member coin coins)))
                                 coins)))))
 
+;; impl without the fold. same idea, but shells out the mapping to the nature of its recursive procedure.
+(define (find-change-two amount coins)
+  (cond ((= amount 0) 1)
+        ((< amount 0) 0)
+        (else (+ (find-change-two (- amount (first coins)) coins)
+                 ;; this will just do the first half of the equation if there is only 1 coin left.
+                 (if (null? (cdr coins)) 0
+                     (find-change-two amount (cdr coins)))))))
+
+(find-change-two 100 coins)
+
 (find-change 100 coins)
 
 ;; -> 292
